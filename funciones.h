@@ -10,7 +10,14 @@ void mostrarMenu();
 void unJugador();
 void dosJugadores();
 void modoSimulado(int TAM, int vec[]);
-bool seis6(int TAM, int vec[]);
+
+
+/////funciones combinaciones
+
+bool combinacionSeis6(int vec[],int TAM);
+bool combinacionSeisX(int vec[],int TAM);
+
+bool combinacionEscalera(int vec[],int TAM);
 
 string pedirNombre();
 

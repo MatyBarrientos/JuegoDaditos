@@ -6,7 +6,8 @@
 #include <string.h>
 using namespace std;
 
-void mostrarMenu() {
+void mostrarMenu()
+{
     system("cls");
     cout<<" ---- Escalera o Cien ---- "<<endl;
     cout<<" 1 - Juego nuevo (1 jugador). "<<endl;
@@ -16,59 +17,74 @@ void mostrarMenu() {
     cout<<" Ingrese la opcion deseada: "<<endl;
 }
 
-void cargarVectorAleatorio(int vec[], int tam) {
+void cargarVectorAleatorio(int vec[], int tam)
+{
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<tam ; i++ )
+    {
         vec[i]=rand()%6+1;
     }
     cout<<"Vector correctamente cargado con numeros aleatorios..."<<endl;
 }
 
-void cargarVectorManual(int vec[],int tam ) {
+void cargarVectorManual(int vec[],int tam )
+{
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<tam ; i++ )
+    {
         cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
         cin>>vec[i];
     }
     cout<<"Vector correctamente cargado..."<<endl;
 }
-void ponerVectorEn0(int vec[],int tam ) {
+void ponerVectorEn0(int vec[],int tam )
+{
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<tam ; i++ )
+    {
         vec[i]=0;
     }
     cout<<"Vector correctamente seteado en 0..."<<endl;
 }
 
-void mostrarVector(int vec[],int tam ) {
+void mostrarVector(int vec[],int tam )
+{
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<tam ; i++ )
+    {
         cout<<"Elemento "<<i+1<<" del vector: "<<vec[i]<<endl;
     }
     system("pause");
 }
 
-void unJugador() {
+void unJugador()
+{
     string jugador;
     jugador=pedirNombre();
-    //cout<<jugador<<endl;
+    cout<<"Hola "<<jugador<<endl;
     system("pause");
 
 }
-void dosJugadores() {
+void dosJugadores()
+{
     string jugador1,jugador2;
     jugador1=pedirNombre();
     jugador2=pedirNombre();
 }
-void modoSimulado(int TAM, int vec[]) {
-    bool resultado;
+void modoSimulado( int vec[],int TAM)
+{
+    bool resultado6, resultadoE;
     cargarVectorManual(vec, TAM);
-    resultado=seis6(TAM,vec);
-    cout<<resultado<<endl;
+    resultado6=combinacionSeis6(vec,TAM);
+    resultadoE=combinacionEscalera(vec,TAM);
+
+    cout<<"Es sexteto seis? : "<<resultado6<<endl;
+    cout<<"Es escalera? : "<<resultadoE<<endl;
     system("pause");
 }
 ////////////////////////
-string pedirNombre() {
+string pedirNombre()
+{
 
     string nombre;
     cout<<"Ingrese el nombre: ";
@@ -77,12 +93,32 @@ string pedirNombre() {
     return nombre;
 }
 
-bool seis6(int TAM, int vec[]) {
+/////funciones combinaciones
+bool combinacionSeis6(int vec[],int TAM )
+{
     bool bandera=true;
-    for(int i=0; i<6 ; i++){
+    for(int i=0; i<6 ; i++)
+    {
         if (vec[i] != 6)
             bandera = false;
     }
-        return bandera;
-    }
+    return bandera;
+}
+bool combinacionEscalera(int vec[],int TAM)
+{
+bool retorno=true;
+bool vecBool[TAM]={false};
+int i,h;
+for (i=0;i<TAM;i++){
+        vecBool[vec[i]-1]=true;
+}
+for (h=0;h<TAM;h++){
+    if(vecBool[h]==false)
+        return false;
+}
+return true;
+}
+bool combinacionSeisX(int vec[],int TAM)
+{
 
+}

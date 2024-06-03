@@ -26,7 +26,7 @@ int main(){
             dosJugadores();
             break;
         case 3:
-            modoSimulado(TAM,dados);
+            modoSimulado(dados,TAM);
             break;
 
         case 0:
