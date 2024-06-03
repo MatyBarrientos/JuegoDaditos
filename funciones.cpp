@@ -78,15 +78,11 @@ string pedirNombre() {
 }
 
 bool seis6(int TAM, int vec[]) {
-    int i, contador=0;
-    bool bandera=false;
-    for(i=0; i<6; i++) {
-        if(vec[i]==6) {
-            contador++;
-        }
-        bandera=(contador==6);
+    bool bandera=true;
+    for(int i=0; i<6 ; i++){
+        if (vec[i] != 6)
+            bandera = false;
+    }
         return bandera;
     }
-}
-
 
