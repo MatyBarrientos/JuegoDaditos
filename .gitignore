@@ -11,13 +11,15 @@
 *.swp
 
 # Ignorar directorios de construcción
-build/
-bin/
-obj/
+#build/
+#bin/
+#obj/
 
 # Ignorar archivos de configuración de IDE
-*.code-workspace
+#*.code-workspace
 .vscode/
-*.cbp
-*.depend
-*.layout
+#*.cbp
+#*.depend
+#*.layout
+
+#Una vez completo el juego es necesario modificar que archivos/ carpetas subimos al repo
