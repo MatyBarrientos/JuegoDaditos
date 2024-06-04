@@ -13,7 +13,7 @@ int main(){
     srand(time(NULL));
     const int TAM=6;
     int opcion=1;
-    int dados[TAM]={1,2,3,4,5,6};
+    int dados[TAM];
     while(opcion!=0){
     mostrarMenu();
     cin>>opcion;
