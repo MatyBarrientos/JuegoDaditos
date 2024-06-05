@@ -16,44 +16,45 @@ void mostrarMenu() {
     cout<<" Ingrese la opcion deseada: "<<endl;
 }
 
-void cargarVectorAleatorio(int vec[], int tam) {
+void cargarVectorAleatorio(int vec[], int TAM) {
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<TAM ; i++ ) {
         vec[i]=rand()%6+1;
     }
-    cout<<"Vector correctamente cargado con numeros aleatorios..."<<endl;
+   // cout<<"Vector correcTAMente cargado con numeros aleatorios..."<<endl;
 }
 
-void cargarVectorManual(int vec[],int tam ) {
+void cargarVectorManual(int vec[],int TAM ) {
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<TAM ; i++ ) {
         cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
         cin>>vec[i];
     }
-    cout<<"Vector correctamente cargado..."<<endl;
+    cout<<"Vector correcTAMente cargado..."<<endl;
 }
-void ponerVectorEn0(int vec[],int tam ) {
+void ponerVectorEn0(int vec[],int TAM ) {
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<TAM ; i++ ) {
         vec[i]=0;
     }
-    cout<<"Vector correctamente seteado en 0..."<<endl;
+    cout<<"Vector correcTAMente seteado en 0..."<<endl;
 }
 
-void mostrarVector(int vec[],int tam ) {
+void mostrarVector(int vec[],int TAM ) {
     int i;
-    for (i=0; i<tam ; i++ ) {
+    for (i=0; i<TAM ; i++ ) {
         cout<<"Elemento "<<i+1<<" del vector: "<<vec[i]<<endl;
     }
     system("pause");
 }
-void mostrarVectorLine(int vec[],int tam ) {
+void mostrarVectorLine(int vec[],int TAM ) {
     int i;
-    for (i=0; i<tam ; i++ ) {
-        cout<<"["<<vec[i]<<"] ";
+    for (i=0; i<TAM ; i++ ) {
+                cout<<"["<<vec[i]<<"] ";
+
     }
     cout<<endl;
-    system("pause");
+    //system("pause");
 }
 
 void unJugador() {
@@ -160,6 +161,7 @@ int lanzamiento (int vec[], int TAM) {
     bool escalera;
     bool combinacion;
     cargarVectorAleatorio(vec,TAM);
+    //cargarVectorManual(vec,TAM);
     mostrarVectorLine(vec,TAM);
     escalera=combinacionEscalera(vec,TAM);
     for (i=1; i<=6; i++) {
@@ -189,7 +191,11 @@ int ronda(int vec[], int TAM) {
     int i, valor,aux;
     for (i=0;i<3;i++){
         aux=lanzamiento(vec,TAM);
-        if(i==0)
+        if(aux==0)
+            return 0;
+        else if(aux==100)
+            return 100;
+        else if(i==0)
             valor=aux;
         else if(aux>valor)
             valor=aux;
