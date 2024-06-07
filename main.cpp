@@ -20,10 +20,10 @@ int main(){
         switch (opcion)
         {
         case 1:
-            unJugador();
+            unJugador(dados, TAM);
             break;
         case 2:
-            dosJugadores();
+            dosJugadores(dados,TAM);
             break;
         case 3:
             modoSimulado(dados,TAM);

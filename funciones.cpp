@@ -21,7 +21,7 @@ void cargarVectorAleatorio(int vec[], int TAM) {
     for (i=0; i<TAM ; i++ ) {
         vec[i]=rand()%6+1;
     }
-   // cout<<"Vector correcTAMente cargado con numeros aleatorios..."<<endl;
+    // cout<<"Vector correcTAMente cargado con numeros aleatorios..."<<endl;
 }
 
 void cargarVectorManual(int vec[],int TAM ) {
@@ -30,14 +30,14 @@ void cargarVectorManual(int vec[],int TAM ) {
         cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
         cin>>vec[i];
     }
-    cout<<"Vector correcTAMente cargado..."<<endl;
+    cout<<"Vector correctamente cargado..."<<endl;
 }
 void ponerVectorEn0(int vec[],int TAM ) {
     int i;
     for (i=0; i<TAM ; i++ ) {
         vec[i]=0;
     }
-    cout<<"Vector correcTAMente seteado en 0..."<<endl;
+    cout<<"Vector correctamente seteado en 0..."<<endl;
 }
 
 void mostrarVector(int vec[],int TAM ) {
@@ -50,59 +50,143 @@ void mostrarVector(int vec[],int TAM ) {
 void mostrarVectorLine(int vec[],int TAM ) {
     int i;
     for (i=0; i<TAM ; i++ ) {
-                cout<<"["<<vec[i]<<"] ";
+        cout<<"["<<vec[i]<<"] ";
 
     }
     cout<<endl;
     //system("pause");
 }
 
-void unJugador() {
+void unJugador(int vec[],int TAM) {
+    int puntaje;
+    int round=0,acumulador=0;
     string jugador;
-    jugador=pedirNombre();
+    jugador=pedirNombre("Ingrese su nombre: ");
     cout<<"Hola "<<jugador<<endl;
+    cout<<"comencemos a jugar."<<endl;
     system("pause");
 
+    while(true) {
+        puntaje=ronda(vec,TAM);
+        round++;
+        if(puntaje==100) {
+            cout<<"Ganaste la partida.!!!!!!!!!!!"<<endl<<"Sacaste escalera en la ronda "<<round<<", felicidades. "<<endl;
+            system("pause");
+            break;
+        } else if(puntaje==0) {
+            cout<<"Sacaste sexteto de seís, tus puntos se reinician a '0'."<<endl;
+            system("pause");
+            acumulador=0;
+        } else {
+            acumulador+=puntaje;
+            cout<<"Puntaje de la ronda "<<round<<": "<<puntaje<<endl;
+            cout<<"Puntos acumulados: "<<acumulador<<endl;
+            system("pause");
+        }
+
+        if (acumulador>=100) {
+            cout<<"Tardaste un total de "<<round<<" rondas. "<<endl;
+            cout<<jugador<<" ganaste la partida.!!!!!!!!!!!"<<endl;
+            system("pause");
+            break;
+        }
+    }
+
 }
-void dosJugadores() {
-    string jugador1,jugador2;
-    jugador1=pedirNombre();
-    jugador2=pedirNombre();
+void dosJugadores(int vec[],int TAM) {
+    string jugador1;
+    string jugador2;
+    jugador1=pedirNombre("Ingrese el nombre del jugador 1: ");
+    jugador2=pedirNombre("Ingrese el nombre del jugador 2: ");
+    int puntaje1,acumulador1=0;
+    int puntaje2,acumulador2=0;
+    int round=0;
+    cout<<"Hola "<<jugador1<<" , hola "<<jugador2<<".Bien, comencemos a jugar."<<endl;
+    system("pause");
+
+    while(true) {
+        round++;
+        /////////////////////jugador1
+        system("cls");
+        cout<<"Puntos acumulados!!!"<<endl<<jugador1<<": "<<acumulador1<<endl<<jugador2<<": "<<acumulador2<<endl;
+        cout<<"Turno de "<<jugador1<<endl;
+        puntaje1=ronda(vec,TAM);
+        if(puntaje1==100) {
+            cout<<jugador1<<" ganaste la partida.!!!!!!!!!!!"<<endl<<"Sacaste escalera en la ronda "<<round<<", felicidades. "<<endl;
+            system("pause");
+            break;
+        } else if(puntaje1==0) {
+            cout<<"Sacaste sexteto de seís, tus puntos se reinician a '0'."<<endl;
+            system("pause");
+            acumulador1=0;
+        } else {
+            acumulador1+=puntaje1;
+            cout<<"Puntaje de la ronda "<<round<<": "<<puntaje1<<endl;
+            ///cout<<"Puntos acumulados: "<<acumulador1<<endl;
+            system("pause");
+        }
+
+        if (acumulador1>=100) {
+            cout<<"Tardaste un total de "<<round<<" rondas. "<<endl;
+            cout<<jugador1<<" ganaste la partida.!!!!!!!!!!!"<<endl;
+            system("pause");
+            break;
+        }
+        /////////////////////jugador2
+        cout<<"Turno de "<<jugador2<<endl;
+        puntaje2=ronda(vec,TAM);
+        if(puntaje2==100) {
+            cout<<jugador2<<" ganaste la partida.!!!!!!!!!!!"<<endl<<"Sacaste escalera en la ronda "<<round<<", felicidades. "<<endl;
+            system("pause");
+            break;
+        } else if(puntaje2==0) {
+            cout<<"Sacaste sexteto de seís, tus puntos se reinician a '0'."<<endl;
+            system("pause");
+            acumulador2=0;
+        } else {
+            acumulador2+=puntaje2;
+            cout<<"Puntaje de la ronda "<<round<<": "<<puntaje2<<endl;
+            ///cout<<"Puntos acumulados: "<<acumulador2<<endl;
+            system("pause");
+        }
+
+        if (acumulador2>=100) {
+            cout<<"Tardaste un total de "<<round<<" rondas. "<<endl;
+            cout<<jugador2<<" ganaste la partida.!!!!!!!!!!!"<<endl;
+            system("pause");
+            break;
+        }
+    }
+
 }
 void modoSimulado( int vec[],int TAM) {
-    //bool resultado6, resultadoE;
-    int aux, prueba;
-    //cargarVectorManual(vec, TAM);
-    /*for (int i=1;i<=6;i++){
-        resultado6=combinacionSeisX(vec,TAM,i);
-        if(resultado6)
-            cout<<"Es sexteto de "<<i<<". "<<endl;
-        else
-            cout<<"No es sexteto de "<<i<<". "<<endl;
-    }*/
-    //aux=combinacionX(vec,TAM);
-    //cout<<"Es sexteto de: "<<aux<<endl;
+    int vueltas=0, aux=0, prueba;
+    cout<<"Ingrese la cantidad de lanzamientos a intentar: ";
+    cin>>vueltas;
+    for(int i=0; i<vueltas; i++) {
+        prueba=lanzamientoTesteo(vec,TAM);
+        if(prueba==0)
+            aux=0;
+        else if(prueba==100) {
+            aux=100;
+            cout<<"Fin del testeo, 'escalera' ingresada"<<endl;
+            cout<<"Puntaje del lanzamiento: "<<prueba<<endl;
+            system("pause");
+            break;
+        } else
+            aux+=prueba;
+        cout<<"Puntaje del testeo: "<<aux<<endl;
+        system("pause");
+    }
 
-
-    /*resultadoE=combinacionEscalera(vec,TAM);
-    if (resultadoE)
-        cout<<"Es escalera."<<endl;
-    else
-        cout<<"No es escalera."<<endl;*/
-    prueba=ronda(vec,TAM);
-    cout<<"Puntaje de la ronda: "<<prueba<<endl;
-    //prueba=ronda(vec,TAM);
-    //cout<<"Puntaje de la ronda: "<<prueba<<endl;
-
-
-    system("pause");
 }
 ////////////////////////
-string pedirNombre() {
+string pedirNombre(string frase) {
 
     string nombre;
-    cout<<"Ingrese el nombre: ";
-    cin.ignore(); ///importante
+    cout<<frase;
+    fflush(stdin); ///importante, no omite 1er caracter
+    //cin.ignore();
     getline(cin,nombre);
     return nombre;
 }
@@ -131,9 +215,9 @@ int combinacionX(int vec[],int TAM) {
     bool bandera;
     int retorno=0;
     for (int i=1; i<=6; i++) {
-        if(bandera=combinacionSeisX(vec,TAM,i)){
+        if(bandera=combinacionSeisX(vec,TAM,i)) {
             retorno=i;
-            }
+        }
     }
     return retorno;
 
@@ -161,17 +245,15 @@ int lanzamiento (int vec[], int TAM) {
     bool escalera;
     bool combinacion;
     cargarVectorAleatorio(vec,TAM);
-    //cargarVectorManual(vec,TAM);
     mostrarVectorLine(vec,TAM);
     escalera=combinacionEscalera(vec,TAM);
     for (i=1; i<=6; i++) {
-        if(combinacion=combinacionSeisX(vec,TAM,i)){
+        if(combinacion=combinacionSeisX(vec,TAM,i)) {
             break;
-            }
+        }
     }
-
     if(escalera) {
-        return puntos=100;
+        puntos=100;
     } else if(combinacion) {
         aux=combinacionX(vec,TAM);
         if(aux==6)
@@ -184,15 +266,44 @@ int lanzamiento (int vec[], int TAM) {
     }
     cout<<"puntaje del lanzamiento: "<<puntos<<endl;
     return puntos;
+}
 
+
+int lanzamientoTesteo (int vec[], int TAM) {
+    int puntos=0;
+    int i,aux;
+    bool escalera;
+    bool combinacion;
+    cargarVectorManual(vec,TAM);
+    mostrarVectorLine(vec,TAM);
+    escalera=combinacionEscalera(vec,TAM);
+    for (i=1; i<=6; i++) {
+        if(combinacion=combinacionSeisX(vec,TAM,i)) {
+            break;
+        }
+    }
+    if(escalera) {
+        puntos=100;
+    } else if(combinacion) {
+        aux=combinacionX(vec,TAM);
+        if(aux==6)
+            puntos=0;
+        else
+            puntos=aux*10;
+    } else {
+        puntos=sumatoriaVector(vec,TAM);
+
+    }
+    cout<<"puntaje del lanzamiento: "<<puntos<<endl;
+    return puntos;
 }
 
 int ronda(int vec[], int TAM) {
     int i, valor,aux;
-    for (i=0;i<3;i++){
+    for (i=0; i<3; i++) {
         aux=lanzamiento(vec,TAM);
         if(aux==0)
-            return 0;
+            valor= 0;
         else if(aux==100)
             return 100;
         else if(i==0)
