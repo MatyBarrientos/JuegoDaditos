@@ -14,8 +14,6 @@ int main(){
     const int TAM=6;
     int opcion=1;
     int dados[TAM];
-    //cargarVectorManual(dados,TAM);
-    //cout<<combX(dados,TAM);
     while(opcion!=0){
     mostrarMenu();
     cin>>opcion;
