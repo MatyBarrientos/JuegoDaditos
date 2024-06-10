@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1717879356 source:d:\estudios\utn\prog 1\workspace\juegodaditos\main.cpp
+1717959313 source:d:\estudios\utn\prog 1\workspace\juegodaditos\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -7,9 +7,9 @@
 	"funciones.h"
 	"funciones.cpp"
 
-1717904306 d:\estudios\utn\prog 1\workspace\juegodaditos\funciones.h
+1718058114 d:\estudios\utn\prog 1\workspace\juegodaditos\funciones.h
 
-1717904306 d:\estudios\utn\prog 1\workspace\juegodaditos\funciones.cpp
+1718058114 d:\estudios\utn\prog 1\workspace\juegodaditos\funciones.cpp
 	<iostream>
 	<iostream>
 	<stdlib.h>

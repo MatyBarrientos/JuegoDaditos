@@ -27,9 +27,13 @@ string pedirNombre(string frase);
 int sumatoriaVector(int vec[],int TAM);
 int lanzamiento (int vec[], int tam);
 int lanzamientoTesteo (int vec[], int TAM);
-int ronda(int vec[], int TAM);
-int rondaTest(int vec[], int TAM);
-
+//int ronda(int vec[], int TAM);
+/////////////////////////////
+int ronda(int vec[], int TAM, int &pos);
+void mostrarCartel(string jugador, int lanzamieto, int ronda);
+void mostrarCartelEscalera(string jugador, int ronda);
 ///////
+void mostrarCartelSexteto();
+void mostrarCartelPuntosRonda(string jugador, int ronda, int puntaje);
 #endif // FUNCIONES_H_INCLUDED
 
