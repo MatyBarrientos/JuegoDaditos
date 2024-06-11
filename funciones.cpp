@@ -163,10 +163,10 @@ void dosJugadores(int vec[],int TAM) {
         }
         if(acumulador1>=100 and acumulador2>=100) {
             if(nLanzamieto1<nLanzamieto2 and acumulador1>acumulador2) {
-                mostrarCartel(jugador1,nLanzamieto1,round);
+                mostrarCartelGanador(jugador1,nLanzamieto1,round);
                 break;
             } else if(nLanzamieto2<nLanzamieto1 and acumulador2>acumulador1) {
-                mostrarCartel(jugador2,nLanzamieto2,round);
+                mostrarCartelGanador(jugador2,nLanzamieto2,round);
                 break;
             } else if(acumulador1==acumulador2 and nLanzamieto1==nLanzamieto2) {
                 cout<<"Empataron";
@@ -174,10 +174,10 @@ void dosJugadores(int vec[],int TAM) {
                 break;
             }
         } else if(acumulador1>=100) {
-            mostrarCartel(jugador1,nLanzamieto1,round);
+            mostrarCartelGanador(jugador1,nLanzamieto1,round);
             break;
         }  else if (acumulador2>=100) {
-            mostrarCartel(jugador2,nLanzamieto2,round);
+            mostrarCartelGanador(jugador2,nLanzamieto2,round);
             break;
         }
     }
@@ -209,7 +209,7 @@ void modoSimulado( int vec[],int TAM) {
 ///////mostrar cartel ganador/////////
 //////////////////////////////////////
 
-void mostrarCartel(string jugador, int lanzamieto, int ronda) {
+void mostrarCartelGanador(string jugador, int lanzamieto, int ronda) {
 
     cout<<"Tardaste un total de "<<lanzamieto<<" lanzamientos. "<<endl;
     cout<<"Tardaste un total de "<<ronda<<" rondas. "<<endl;
