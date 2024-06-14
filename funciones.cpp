@@ -89,7 +89,7 @@ void unJugador(int vec[],int TAM)
     cout<<"Hola "<<jugador<<", comencemos a jugar."<<endl;
     system("pause");
 
-    while(acumPuntaje<=100 && puntaje<=100)
+    while(acumPuntaje<100 && puntaje!=100)
     {
 
         system("cls");
@@ -100,23 +100,26 @@ void unJugador(int vec[],int TAM)
         lanzamientos=((cantRondas-1)*3);
         if(puntaje==100)
         {
-            cout<<"Ganaste la partida.!!!!!!!!!!!"<<endl;
+            mostrarCartelEscalera(jugador,cantRondas);
+            /*cout<<"Ganaste la partida.!!!!!!!!!!!"<<endl;
             cout<<"Sacaste escalera en la ronda "<<cantRondas<<", en el lanzamiento "<<posLanzamiento<<". Felicidades. "<<endl;
             cout<<"Tardaste un total de "<<lanzamientos+posLanzamiento<<" lanzamientos. "<<endl;
-            system("pause");
+            system("pause");*/
         }
         else if(puntaje==0)
         {
-            cout<<"Sacaste un sexteto de seis, tus puntos se reinician a '0'."<<endl;
-            system("pause");
+            mostrarCartelSexteto();
+            /*cout<<"Sacaste un sexteto de seis, tus puntos se reinician a '0'."<<endl;
+            system("pause");*/
             acumPuntaje=0;
         }
         else
         {
             acumPuntaje+=puntaje;
-            cout<<endl;
+            mostrarCartelPuntosRonda(jugador,cantRondas,puntaje);
+            /*cout<<endl;
             cout<<"Puntaje de la ronda "<<cantRondas<<": "<<puntaje<<endl;
-            system("pause");
+            system("pause");*/
         }
     }
     mostrarCartelGanadorTest(jugador,lanzamientos,posLanzamiento,cantRondas, acumPuntaje);
