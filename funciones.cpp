@@ -82,7 +82,6 @@ void unJugador(int vec[],int TAM)
     int puntaje = 0,acumPuntaje=0;
     int cantRondas=0,lanzamientos=0;
     int posLanzamiento;
-    bool banderaEscalera=false, banderaSexteto6=false; //ISA
     string jugador;
     /// Desarrollo
     jugador=pedirNombre("Ingrese su nombre: ");
@@ -97,7 +96,7 @@ void unJugador(int vec[],int TAM)
         cout<<"Numero de ronda: "<<cantRondas+1<<"            "<<"Puntos acumulados: "<<acumPuntaje<<endl;
         puntaje=ronda(vec,TAM,posLanzamiento);
         cantRondas++;
-        lanzamientos=((cantRondas-1)*3);
+        lanzamientos=((cantRondas-1)*3)+posLanzamiento;
         if(puntaje==100)
         {
             mostrarCartelEscalera(jugador,cantRondas);
@@ -156,15 +155,15 @@ void dosJugadores(int vec[],int TAM)
     while((acumPuntaje1<100 and puntaje1!=100)and(acumPuntaje2<100 and puntaje2!=100))
     {
         system("cls");
-        round++;
         /// Jugador 1
-        cout<<"Ronda Nro: "<<round<<"        "<<"Turno de "<<jugador1<<endl;
+        cout<<"Ronda Nro: "<<round+1<<"        "<<"Turno de "<<jugador1<<endl;
         puntaje1=ronda(vec,TAM,pos1);
-        nLanzamieto1=((round-1)*3)+pos1;
         system("cls");
         /// Jugador 2
-        cout<<"Ronda Nro: "<<round<<"        "<<"Turno de "<<jugador2<<endl;
+        cout<<"Ronda Nro: "<<round+1<<"        "<<"Turno de "<<jugador2<<endl;
         puntaje2=ronda(vec,TAM,pos2);
+        round++;
+        nLanzamieto1=((round-1)*3)+pos1;
         nLanzamieto2=((round-1)*3)+pos2;
         system("cls");
 
@@ -305,7 +304,7 @@ void mostrarCartelGanadorTest(string jugador, int lanzamiento,int posLanzamiento
     cout<<"Numero de ronda: "<<ronda<<"            "<<"Puntos acumulados: "<<puntaje<<endl;
     //cout<<"Puntos acumulados: " << puntaje << endl;
     cout<<"Ganaste en la ronda "<<ronda<<", en el lanzamiento "<<posLanzamiento<<endl; //ISA
-    cout<<"En total fueron "<<lanzamiento+posLanzamiento<<" lanzamientos."<<endl; //ISA
+    cout<<"En total fueron "<<lanzamiento<<" lanzamientos."<<endl; //ISA
     system("pause");
     system("cls");
 }
@@ -322,7 +321,9 @@ void mostrarCartelEscalera(string jugador, int ronda)
 
 void mostrarCartelPuntosRonda(string jugador, int ronda, int puntaje)
 {
+    cout<<endl;
     cout<<"Puntaje de la ronda "<<ronda<<" de "<<jugador<<": "<<puntaje<<endl;
+    cout<<endl;
     system("pause");
 }
 
