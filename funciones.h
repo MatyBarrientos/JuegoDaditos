@@ -24,6 +24,7 @@ int ronda(int vec[], int TAM, int &lanzamiento);
 //////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 void mostrarCartelGanador(string jugador, int lanzamieto, int ronda);
+void mostrarCartelGanadorTest(string jugador, int lanzamiento,int posLanzamiento, int ronda, int puntaje);
 void mostrarCartelEscalera(string jugador, int ronda);
 void mostrarCartelPuntosRonda(string jugador, int ronda, int puntaje);
 void mostrarCartelSexteto();
